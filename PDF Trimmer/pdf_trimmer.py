@@ -8,14 +8,9 @@ if len(sys.argv)<2:
 else:
     in_fpath= sys.argv[1]
 
-if len(sys.argv)==3: # To give output file path
-	out_fpath = sys.argv[2]
-else:   # Replace the same file
-	out_fpath = in_fpath
-
-
+out_fpath = sys.argv[2] if len(sys.argv)==3 else in_fpath
 # Initialize PDF reader & writer objects
-in_file = PyPDF2.PdfFileReader(in_fpath, 'rb') 
+in_file = PyPDF2.PdfFileReader(in_fpath, 'rb')
 out_file = PyPDF2.PdfFileWriter()
 
 # To extract text from a PDF page
